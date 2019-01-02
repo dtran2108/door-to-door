@@ -5,9 +5,11 @@ from time import time
 
 
 class Nearest_neighbor(Graph):
-    """ This class inherits from the Graph class """
+    """ Find the closest city base on the distance between them """
 
     def nearest_neighbor(self):
+        """ find the closest city by calculating the distances between the start Node
+            and each city in the list then get the shortest distance"""
         # for calculating the run-time of the algorithm
         start_time = time()
         city_info = self.get_all_nodes()
@@ -16,9 +18,7 @@ class Nearest_neighbor(Graph):
         path = [start]
         city_info.remove(start)
         # loop until the city_info list is empty
-        while city_info:
-            """ find the closest city by calculating the distances between the start Node
-                and each city in the list then get the shortest distance"""
+        while city_info:          
             closest_city = min(city_info, key=lambda city: Node.distance(city, start))
             # add the closest city to the path
             path.append(closest_city)
